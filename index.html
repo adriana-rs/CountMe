@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" href="./assets/img/favicon.svg" type="image/x-icon">
+</head>
+<body>
+    <header class="app-header">
+        <h1>CountMe</h1>  
+        <h2><a href="https://adriana-rs.github.io" target="_blank">adriana-rs</a></h2>
+    </header>
+    <div class="container">
+        <div class="counter-display">
+        <input type="number" id="incrementStep" class="input-step" value="1">
+        <div class="counter-button">
+            <button id="decrementButton" class="button" aria-label="Decrementa">-</button>
+            <p id="counter" class="counter-value">0</p>
+            <button id="incrementButton" class="button" aria-label="Incrementa">+</button>           
+        </div>
+            <button id="resetButton" class="button" aria-label="Resetta il contatore">Reset</button>
+        </div>
+    </div>   
+    <div class="instructions">
+        <h2>Istruzioni:</h2>
+        <p>1. Usa il pulsante "+" per incrementare il contatore.</p>
+        <p>2. Usa il pulsante "-" per decrementare il contatore.</p>
+        <p>3. Imposta un valore per incrementare o decrementare nel campo sopra il contatore.</p>
+        <p>4. Clicca "Reset" per riportare il contatore a zero.</p>
+    </div>
+    <footer class="app-footer">
+        <p>&copy; 2025 Adriana Russo. Tutti i diritti riservati.</p>
+        <div class="footer-links">
+            <a href="https://github.com/adriana-rs" target="_blank">GitHub</a> | 
+            <a href="https://linkedin.com/in/adriana-rs1805" target="_blank">LinkedIn</a> | 
+            <a href="https://www.facebook.com/Tony.Adry" target="_blank">Facebook</a> |  
+            <a href="https://www.instagram.com/adrianars20/profilecard/?igsh=eW42cXphbTdseGRp" target="_blank">Instagram</a> | 
+        </div>
+    </footer>    
+    <script src="./js/script.js"></script>
+</body>
+</html>
