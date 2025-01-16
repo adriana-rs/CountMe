@@ -2,6 +2,8 @@
 
 CountMe è un'applicazione web semplice e interattiva che permette di incrementare, decrementare e resettare un contatore. Puoi anche personalizzare il passo di incremento e decremento inserendo un valore numerico. L'applicazione è realizzata con HTML, CSS e JavaScript, ed è ottimizzata per essere utilizzata su dispositivi desktop e mobile.
 
+![Screenshot dell'app](./assets/img/Screenshot%202025-01-16%20103610.png)
+
 ## Funzionalità
 
 - **Incrementa/Decrementa:** Usa i pulsanti "+" e "-" per aumentare o diminuire il contatore.
