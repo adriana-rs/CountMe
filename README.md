@@ -18,6 +18,26 @@ CountMe è un'applicazione web semplice e interattiva che permette di incrementa
 3. **Imposta il passo:** Modifica il valore nel campo sopra il contatore per impostare il passo di incremento o decremento.
 4. **Reset:** Clicca sul pulsante "Reset" per riportare il contatore a zero.
 
+## Come Funziona
+
+L'applicazione utilizza JavaScript per gestire le operazioni di incremento, decremento e reset del contatore. 
+
+- **Incremento e Decremento**: Quando premi i pulsanti "+" o "-", il valore del contatore viene modificato in base al valore inserito nel campo di input. Questo valore di incremento o decremento è personalizzabile e viene letto dal campo di input ogni volta che l'utente preme uno dei pulsanti. Il valore del contatore viene aggiornato dinamicamente tramite la funzione `updateCounter`.
+   
+- **Reset**: Il pulsante "Reset" riporta il contatore a zero e ripristina il passo di incremento al valore predefinito di 1. La funzione `resetHandler` gestisce questa operazione.
+
+- **Gestione degli errori**: Se l'utente inserisce un valore non valido nel campo di input (ad esempio, un numero negativo o zero), viene mostrato un messaggio di errore tramite la funzione `errorHandler`.
+
+In questo modo, l'app è interattiva e consente all'utente di personalizzare facilmente il comportamento del contatore.
+
+## Demo Online
+
+Puoi provare l'applicazione direttamente online tramite il seguente link:
+
+[Demo di CountMe](https://adriana-rs-countme.netlify.app/)
+
+Cliccando sul link, verrai indirizzato alla versione live del contatore, dove potrai testare tutte le funzionalità direttamente nel tuo browser.
+
 ## Installazione
 
 1. Clona questo repository o scarica il codice sorgente.
