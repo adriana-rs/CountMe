@@ -29,9 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
     decrementButton.setAttribute('aria-label', 'Decrementa');
     buttonWrapper.appendChild(decrementButton);
   
-    // Valore del contatore 
+    // Valore del contatore
     const counterValue = createElement('p', 'counter-value', '0');
-    buttonWrapper.appendChild(counterValue); 
+    buttonWrapper.appendChild(counterValue);
   
     // Pulsante di incremento
     const incrementButton = createElement('button', 'button', '+');
@@ -50,37 +50,35 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateCounter() {
       counterValue.innerHTML = counter;
     }
-
+  
     // Funzione per validare l'input
     function isValidStep(value) {
       const number = parseInt(value);
       return !isNaN(number) && number > 0;
     }
-
+  
     // Event delegation per la gestione dei click su increment/decrement/reset
     buttonWrapper.addEventListener('click', (e) => {
-      if (e.target === incrementButton || e.target === decrementButton) {
-        const step = inputStep.value;
-
-        // Controllo per valore non valido
+      if (e.target.tagName === 'BUTTON') {
+        const step = parseInt(inputStep.value);
         if (!isValidStep(step)) {
           alert("Per favore, inserisci un valore positivo valido.");
           return;
         }
-
-        const stepValue = parseInt(step); // Converto il valore dell'input in un numero intero
-        counter += e.target === incrementButton ? stepValue : -stepValue;
+  
+        if (e.target === incrementButton) {
+          counter += step;
+        } else if (e.target === decrementButton) {
+          counter -= step;
+        } else if (e.target === resetButton) {
+          counter = 0;
+          inputStep.value = '1'; // Reset del passo
+        }
         updateCounter();
       }
-    });
-
-    // Gestione del reset
-    resetButton.addEventListener('click', () => {
-      counter = 0; 
-      inputStep.value = '1'; 
-      updateCounter(); 
     });
   
     // Aggiorna il contatore inizialmente
     updateCounter();
-});
+  });
+  
