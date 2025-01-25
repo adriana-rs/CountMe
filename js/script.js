@@ -1,60 +1,86 @@
-// Stato iniziale
-let counter = 0;
-const incrementStepInput = document.getElementById("incrementStep");
-const errorMessage = 'Inserisci un numero valido maggiore di zero.';
-
-// Funzione per creare elementi DOM dinamicamente
-const createElement = (tagName, className, innerHTML) => {
-    const element = document.createElement(tagName);
-    if (className) element.className = className;
-    if (innerHTML) element.innerHTML = innerHTML;
-    return element;
-}
-
-// Funzione che gestisce gli errori
-const errorHandler = (message, incrementStep) => {
-    if (message) {
-        alert(message);
-        return;
-    } else if (isNaN(incrementStep) || incrementStep <= 0) {
-        alert(errorMessage);
-        return;
+document.addEventListener('DOMContentLoaded', () => {
+    // Funzione per creare un nuovo elemento con un tag, una classe e innerHTML
+    function createElement(tag, className, innerHTML = '') {
+      const element = document.createElement(tag);
+      if (className) element.classList.add(className);
+      if (innerHTML) element.innerHTML = innerHTML;
+      return element;
     }
-}
-
-// Funzione che aggiorna il counter
-const updateCounter = (counter) => {
-    document.getElementById("counter").textContent = counter;
-}
-
-// Funzione che determina l'operazione da effettuare
-const handlerIncrement = (event) => {
-    const incrementStepValue = parseInt(incrementStepInput.value);
-    errorHandler(null, incrementStepValue);
-
-    if (event.target.id === 'incrementButton') {
-        counter += incrementStepValue;
-    } else if (event.target.id === 'decrementButton') {
-        counter -= incrementStepValue;
-    } else {
-        errorHandler('Operazione non consentita', incrementStepValue);
+  
+    // Selezione del container per aggiungere gli elementi
+    const appContainer = document.querySelector('.container');
+  
+    // Creazione del contatore
+    const counterDisplay = createElement('div', 'counter-display');
+    appContainer.appendChild(counterDisplay);
+  
+    // Creazione dell'input per il passo
+    const inputStep = createElement('input', 'input-step');
+    inputStep.type = 'number';
+    inputStep.value = '1';
+    counterDisplay.appendChild(inputStep);
+  
+    // Creazione del wrapper per i pulsanti
+    const buttonWrapper = createElement('div', 'counter-button');
+    counterDisplay.appendChild(buttonWrapper);
+  
+    // Pulsante di decremento
+    const decrementButton = createElement('button', 'button', '-');
+    decrementButton.setAttribute('aria-label', 'Decrementa');
+    buttonWrapper.appendChild(decrementButton);
+  
+    // Valore del contatore 
+    const counterValue = createElement('p', 'counter-value', '0');
+    buttonWrapper.appendChild(counterValue); 
+  
+    // Pulsante di incremento
+    const incrementButton = createElement('button', 'button', '+');
+    incrementButton.setAttribute('aria-label', 'Incrementa');
+    buttonWrapper.appendChild(incrementButton);
+  
+    // Pulsante di reset
+    const resetButton = createElement('button', 'button', 'Reset');
+    resetButton.setAttribute('aria-label', 'Resetta il contatore');
+    counterDisplay.appendChild(resetButton);
+  
+    // Variabile per il contatore
+    let counter = 0;
+  
+    // Funzione per aggiornare il contatore
+    function updateCounter() {
+      counterValue.innerHTML = counter;
     }
 
-    updateCounter(counter);
-}
-
-// Funzione che resetta
-const resetHandler = () => {
-    counter = 0;
-    incrementStepInput.value = 1;
-    updateCounter(counter);
-}
-
-// Event Delegation per i bottoni
-document.getElementById("buttonWrapper").addEventListener("click", (event) => {
-    if (event.target.id === "incrementButton" || event.target.id === "decrementButton") {
-        handlerIncrement(event);
-    } else if (event.target.id === "resetButton") {
-        resetHandler();  // Questa è la parte che gestisce il reset
+    // Funzione per validare l'input
+    function isValidStep(value) {
+      const number = parseInt(value);
+      return !isNaN(number) && number > 0;
     }
+
+    // Event delegation per la gestione dei click su increment/decrement/reset
+    buttonWrapper.addEventListener('click', (e) => {
+      if (e.target === incrementButton || e.target === decrementButton) {
+        const step = inputStep.value;
+
+        // Controllo per valore non valido
+        if (!isValidStep(step)) {
+          alert("Per favore, inserisci un valore positivo valido.");
+          return;
+        }
+
+        const stepValue = parseInt(step); // Converto il valore dell'input in un numero intero
+        counter += e.target === incrementButton ? stepValue : -stepValue;
+        updateCounter();
+      }
+    });
+
+    // Gestione del reset
+    resetButton.addEventListener('click', () => {
+      counter = 0; 
+      inputStep.value = '1'; 
+      updateCounter(); 
+    });
+  
+    // Aggiorna il contatore inizialmente
+    updateCounter();
 });

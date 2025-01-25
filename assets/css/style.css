@@ -1,3 +1,4 @@
+/* Reset degli stili di base */
 * {
     margin: 0;
     padding: 0;
@@ -16,6 +17,7 @@ body {
     text-align: center;
 }
 
+/* Stile dell'header */
 .app-header {
     background: linear-gradient(90deg, #ff5757, #8c52ff);
     padding: 20px;
@@ -48,12 +50,14 @@ body {
     color: #ff5757;
 }
 
+/* Layout del container */
 .container {
     margin: 40px auto;
     max-width: 500px;
     width: 90%;
 }
 
+/* Contenitore del contatore */
 .counter-display {
     background: #292929;
     border-radius: 10px;
@@ -61,6 +65,7 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
 }
 
+/* Input per il valore del passo */
 .input-step {
     width: 120px;
     padding: 10px;
@@ -78,6 +83,7 @@ body {
     background: #444;
 }
 
+/* Contenitore per i pulsanti di incremento e decremento */
 .counter-button {
     display: flex;
     align-items: center;
@@ -85,6 +91,7 @@ body {
     margin-bottom: 20px;
 }
 
+/* Stile per i pulsanti */
 .button {
     font-size: 2em;
     padding: 10px 20px;
@@ -102,6 +109,7 @@ body {
     transform: scale(1.1);
 }
 
+/* Valore del contatore */
 .counter-value {
     font-size: 3em;
     margin: 0 20px;
@@ -110,6 +118,7 @@ body {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
+/* Istruzioni per l'uso */
 .instructions {
     font-size: 1.2em;
     color: #d9d9d9;
@@ -122,6 +131,7 @@ body {
     margin-bottom: 20px;
 }
 
+/* Footer */
 .app-footer {
     background: #292929;
     padding: 20px;
@@ -145,4 +155,32 @@ body {
 
 .footer-links a:hover {
     color: #ff5757;
+}
+
+/* Responsività: Adattamento per schermi piccoli */
+@media (max-width: 600px) {
+    .app-header h1 {
+        font-size: 2.5em;
+    }
+
+    .input-step {
+        width: 80px;
+    }
+
+    .counter-value {
+        font-size: 2.5em;
+    }
+
+    .button {
+        font-size: 1.8em;
+        padding: 8px 16px;
+    }
+
+    .counter-button {
+        flex-direction: column;
+    }
+
+    .footer-links a {
+        font-size: 0.9em;
+    }
 }
