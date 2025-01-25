@@ -55,6 +55,6 @@ document.getElementById("buttonWrapper").addEventListener("click", (event) => {
     if (event.target.id === "incrementButton" || event.target.id === "decrementButton") {
         handlerIncrement(event);
     } else if (event.target.id === "resetButton") {
-        resetHandler();
+        resetHandler();  // Questa è la parte che gestisce il reset
     }
 });
