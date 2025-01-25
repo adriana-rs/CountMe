@@ -3,6 +3,14 @@ let counter = 0;
 const incrementStepInput = document.getElementById("incrementStep");
 const errorMessage = 'Inserisci un numero valido maggiore di zero.';
 
+// Funzione per creare elementi DOM dinamicamente
+const createElement = (tagName, className, innerHTML) => {
+    const element = document.createElement(tagName);
+    if (className) element.className = className;
+    if (innerHTML) element.innerHTML = innerHTML;
+    return element;
+}
+
 // Funzione che gestisce gli errori
 const errorHandler = (message, incrementStep) => {
     if (message) {
@@ -20,15 +28,13 @@ const updateCounter = (counter) => {
 }
 
 // Funzione che determina l'operazione da effettuare
-const handlerIncrement = (type) => {
-    
+const handlerIncrement = (event) => {
     const incrementStepValue = parseInt(incrementStepInput.value);
-
     errorHandler(null, incrementStepValue);
 
-    if (type === 'increment') {
+    if (event.target.id === 'incrementButton') {
         counter += incrementStepValue;
-    } else if (type === 'decrement') {
+    } else if (event.target.id === 'decrementButton') {
         counter -= incrementStepValue;
     } else {
         errorHandler('Operazione non consentita', incrementStepValue);
@@ -44,9 +50,11 @@ const resetHandler = () => {
     updateCounter(counter);
 }
 
-// Listener sui bottoni
-document.getElementById("incrementButton").addEventListener("click", () => handlerIncrement('increment'));
-
-document.getElementById("decrementButton").addEventListener("click", () => handlerIncrement('decrement'));
-
-document.getElementById("resetButton").addEventListener("click", resetHandler);
+// Event Delegation per i bottoni
+document.getElementById("buttonWrapper").addEventListener("click", (event) => {
+    if (event.target.id === "incrementButton" || event.target.id === "decrementButton") {
+        handlerIncrement(event);
+    } else if (event.target.id === "resetButton") {
+        resetHandler();
+    }
+});
