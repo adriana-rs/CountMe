@@ -86,5 +86,5 @@ Puoi seguire il mio lavoro su:
 
 Grazie per aver visitato il progetto CountMe! 😊
 
-About
+## About
 Counter realizzato come progetto finale del corso di JavaScript.
