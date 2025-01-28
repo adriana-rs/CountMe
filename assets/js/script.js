@@ -58,14 +58,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     // Event delegation per la gestione dei click su increment/decrement/reset
-    buttonWrapper.addEventListener('click', (e) => {
+    counterDisplay.addEventListener('click', (e) => {
       if (e.target.tagName === 'BUTTON') {
         const step = parseInt(inputStep.value);
         if (!isValidStep(step)) {
           alert("Per favore, inserisci un valore positivo valido.");
           return;
         }
-  
         if (e.target === incrementButton) {
           counter += step;
         } else if (e.target === decrementButton) {
@@ -73,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (e.target === resetButton) {
           counter = 0;
           inputStep.value = '1';
-          updateCounter();
         }
         updateCounter();
       }
