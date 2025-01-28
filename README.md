@@ -24,9 +24,9 @@ L'applicazione utilizza JavaScript per gestire le operazioni di incremento, decr
 
 - **Incremento e Decremento**: Quando premi i pulsanti "+" o "-", il valore del contatore viene modificato in base al valore inserito nel campo di input. Questo valore di incremento o decremento è personalizzabile e viene letto dal campo di input ogni volta che l'utente preme uno dei pulsanti. Il valore del contatore viene aggiornato dinamicamente tramite la funzione `updateCounter`.
    
-- **Reset**: Il pulsante "Reset" riporta il contatore a zero e ripristina il passo di incremento al valore predefinito di 1. La funzione `resetHandler` gestisce questa operazione.
+- Reset: Il pulsante "Reset" riporta il contatore a zero e ripristina il passo di incremento al valore predefinito di 1. La logica di reset è gestita direttamente all'interno del listener dell'evento.
 
-- **Gestione degli errori**: Se l'utente inserisce un valore non valido nel campo di input (ad esempio, un numero negativo o zero), viene mostrato un messaggio di errore tramite la funzione `errorHandler`.
+- Gestione degli errori: Se l'utente inserisce un valore non valido nel campo di input (ad esempio, un numero negativo o zero), viene mostrato un messaggio di errore tramite un alert.
 
 In questo modo, l'app è interattiva e consente all'utente di personalizzare facilmente il comportamento del contatore.
 
@@ -85,3 +85,6 @@ Puoi seguire il mio lavoro su:
 ---
 
 Grazie per aver visitato il progetto CountMe! 😊
+
+About
+Counter realizzato come progetto finale del corso di JavaScript.
