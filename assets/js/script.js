@@ -72,7 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
           counter -= step;
         } else if (e.target === resetButton) {
           counter = 0;
-          inputStep.value = '1'; // Reset del passo
+          inputStep.value = '1';
+          updateCounter();
         }
         updateCounter();
       }
